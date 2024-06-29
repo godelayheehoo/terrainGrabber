@@ -1,4 +1,5 @@
 #TODO: main
+#TODO: dask
 #TODO: use rolling sum and a limit to control how much map data you download.  The full dataset is like 20TB, Too much man
 import requests
 
@@ -7,6 +8,7 @@ import requests
 #constants
 TNM_URL = 'https://tnmaccess.nationalmap.gov/api/v1/products'
 PAGE_SIZE = 1000
+
 
 #imports
 import configparser
@@ -93,6 +95,9 @@ download_df = download_df.drop_duplicates(subset=['boundingBox_minX', 'boundingB
 
 print(f"Removed {size_before_dedupe-download_df.shape[0]} bounding box duplicates")
 
+if (maxMaps:=int(config['DEFAULT']["MaxMaps"])):
+    download_df=download_df.sample(n=maxMaps,random_state=531)
+    print(f'downsampled to {download_df.shape[0]} maps')
 
 ##DEBUG: REMOVE
 # download_df = download_df.iloc[:5]
