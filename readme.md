@@ -1,6 +1,11 @@
 # Requirements
 - rasterio
 - pandas
+- matplotlib
+- seaborn
+- dask
+- h5py
+- pyproj
 
 # Sampling
 We separate the base maps (.tif files) into train and test sets.  Within a set, we do allow subsectioned terrain to
