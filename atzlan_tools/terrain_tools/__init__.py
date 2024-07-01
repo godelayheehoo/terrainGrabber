@@ -26,7 +26,7 @@ def get_geod(crs_string):
     :param crs_string: EPSG:26916
     :return: pyproj.geod.Geod
     '''
-    new_geod=_CRS.from_string(crs_string)
+    new_geod =_CRS.from_string(crs_string)
     return new_geod
 
 #Used chatGPT to help here, modified to return a single score
