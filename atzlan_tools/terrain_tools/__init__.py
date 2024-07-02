@@ -3,6 +3,7 @@ from pyproj.crs import CRS as _CRS
 import numpy as _np
 from scipy.ndimage import convolve as _convolve
 
+from ._dataset_helpers import RioDatasetHelper, RandomSection
 # going back and forth on get_geod looking up from a dict.  I suppose instantiate every time
 # so that you can more easily dask things. Instantiating one doesn't require much.
 
